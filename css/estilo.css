@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Fira+Sans+Extra+Condensed:wght@100&family=Staatliches&display=swap");
+/*RESET-todas las etiquetas pueden recibir contenido antes o despues*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62,5%;
+  /*10px de base al html, y para pasar a em 1em o 24px= 2.4em*/ }
+
+/*GLOBALES*/
+body {
+  display: grid;
+  min-width: 1200px;
+  height: 200vh;
+  background: linear-gradient(15deg, black, #0d0f0f, black);
+  background-size: 400% 400%;
+  position: relative;
+  flex-direction: column;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30vh 1fr 20vh;
+  grid-template-areas: "header" "main" "footer";
+  animation: back 15s ease infinite; }
+
+ul {
+  list-style-type: none; }
+
+li a {
+  text-decoration: none;
+  display: flex; }
+
+@keyframes back {
+  0% {
+    background-position: 0% 50%; }
+  25% {
+    background-position: 100% 50%; }
+  50% {
+    background-position: 0% 50%; } }
+
+header .logo__img {
+  border-radius: 100%;
+  margin: 30px 0px 0px 30px;
+  left: 5rem; }
+
+header .titulo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+  header .titulo__titulo {
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    color: white;
+    font-size: 3em;
+    font-weight: lighter;
+    margin-bottom: -5.799rem;
+    margin-left: 1rem; }
+  header .titulo p {
+    font-family: "Staatliches", cursive;
+    color: white;
+    font-size: 1.5em;
+    margin-left: 2.2rem;
+    transform: rotate(355deg); }
+
+main {
+  max-width: 1200px;
+  margin: 0 auto; }
+  main .productos {
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem; }
+  main .card {
+    margin: 10px 10px 10px 10px;
+    position: relative;
+    background-color: #242e30;
+    opacity: 80%;
+    border-radius: 1rem; }
+  main .card-img, main .card-img-top {
+    border-radius: 5px;
+    margin-top: 0.5rem; }
+  main .row {
+    justify-content: center; }
+  main .btn-primary {
+    color: #fff;
+    background-color: #0b1d24;
+    border-color: #051820;
+    font-family: "Staatliches", cursive; }
+  main h5 {
+    color: #fff;
+    font-family: "Staatliches", cursive; }
+  main .card-text {
+    color: #fff;
+    font-family: "Fira Sans Extra Condensed", sans-serif; }

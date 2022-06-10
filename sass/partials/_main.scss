@@ -1,0 +1,46 @@
+main{
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .productos{
+        font-family: $font-two;
+        color: $secondary;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .card{
+        margin: 10px 10px 10px 10px;
+        position: relative;
+        background-color: $principal;
+        opacity: 80%;
+        border-radius: 1rem;
+    }
+
+    .card-img, .card-img-top {
+        border-radius: 5px;
+        margin-top: 0.5rem;
+    }
+
+    .row{
+        justify-content: center;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #0b1d24;
+        border-color: #051820;
+        font-family: $font-three;
+    }
+
+    h5{
+        color: #fff;
+        font-family: $font-three;
+    }
+
+    .card-text{
+        color: #fff;
+        font-family: $font-two;
+    }
+}

@@ -1,0 +1,59 @@
+/*RESET-todas las etiquetas pueden recibir contenido antes o despues*/
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62,5%;/*10px de base al html, y para pasar a em 1em o 24px= 2.4em*/
+    
+}
+
+/*GLOBALES*/
+
+body{
+    display: grid;
+    min-width: 1200px;
+    height: 200vh;
+    background: linear-gradient(15deg, black, rgb(13, 15, 15), black);
+    background-size: 400% 400%;
+    position: relative;
+    flex-direction: column;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30vh 1fr 20vh;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    animation: back 15s ease infinite;
+    
+}
+
+
+ul{
+    list-style-type: none;
+}
+
+li a{
+    text-decoration: none;
+    display: flex;
+}
+
+@keyframes back{
+    0%{
+        background-position: 0% 50%;
+    }
+
+    25%{
+        background-position: 100% 50%;
+    }
+
+    50%{
+        background-position: 0% 50%;
+    }
+
+}
