@@ -1,3 +1,83 @@
+//DESAFIO
+
+
+const Precio = (precio, cantidad) => {
+    let total;
+    return (total = precio * cantidad);
+  };
+  
+  
+  let total=0;
+  let respuesta;
+  let compra=0;
+  
+  while(respuesta!=="no"){
+      let prenda = Number(prompt("seleccione su prenda: 1-pantalon $4500 2-remera $1800 3-buzo $3200"));
+      let cantidad = Number(prompt("seleccione la cantidad: "));
+  
+      if(prenda !== 0 && cantidad !== 0){
+          for (let i = 0; i < 1 ; i++) {
+          
+              switch (prenda) {
+                case 1:
+                  total = Precio(4500, cantidad);
+                  alert("el total de su compra es: " + total);
+                  compra+=total;
+                  break;
+                case 2:
+                  total = Precio(1800, cantidad);
+                  alert("el total de su compra es: " + total);
+                  compra+=total;
+                  break;
+                case 3:
+                  total = Precio(3200, cantidad);
+                  alert("el total de su compra es: " + total);
+                  compra+=total;
+                  break;
+              }
+              //compra += Precio(total, prenda);
+             
+          }
+      }else{ 
+          alert("Ingrese un producto para continuar");  
+      }
+      
+      respuesta=prompt("desea seguir cargando productos?: si/no");
+  }
+  
+  alert("El total de su compra es: " + compra);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*let nombre = "Homero" ;
 let apellido = "Simpson";
 let edad = 38;
@@ -276,48 +356,3 @@ const descuentos = (precio, descuento) =>{
 }
 */
 
-const Precio = (precio, cantidad) => {
-  let total;
-  return (total = precio * cantidad);
-};
-
-
-let total=0;
-let respuesta;
-let compra=0;
-
-while(respuesta!=="no"){
-    let prenda = Number(prompt("seleccione su prenda: 1-pantalon $4500 2-remera $1800 3-buzo $3200"));
-    let cantidad = Number(prompt("seleccione la cantidad: "));
-
-    if(prenda !== 0 && cantidad !== 0){
-        for (let i = 0; i < 1 ; i++) {
-        
-            switch (prenda) {
-              case 1:
-                total = Precio(4500, cantidad);
-                alert("el total de su compra es: " + total);
-                compra+=total;
-                break;
-              case 2:
-                total = Precio(1800, cantidad);
-                alert("el total de su compra es: " + total);
-                compra+=total;
-                break;
-              case 3:
-                total = Precio(3200, cantidad);
-                alert("el total de su compra es: " + total);
-                compra+=total;
-                break;
-            }
-            //compra += Precio(total, prenda);
-           
-        }
-    }else{ 
-        alert("Ingrese un producto para continuar");  
-    }
-    
-    respuesta=prompt("desea seguir cargando productos?: si/no");
-}
-
-alert("El total de su compra es: " + compra);
