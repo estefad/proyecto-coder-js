@@ -1,55 +1,235 @@
 //DESAFIO
 
 
-const Precio = (precio, cantidad) => {
-    let total;
-    return (total = precio * cantidad);
-  };
+class Compra{
+    constructor(prenda, talle, cantidad, precio){
+        this.prenda = prenda
+        this.talle = talle
+        this.cantidad = parseFloat(cantidad)
+        this.precio = parseFloat(precio)
+        this.disponible = true;
+    }
+
+    calcularCarrito(){
+        return this.precio * this.cantidad;
+    }
+       
+    vendido(){
+        this.disponible=false;
+    }
+}
+
+
+let carrito=[];
+let respuesta;
+
+alert("Bienvenido a su tienda!");
+
+while(respuesta !== "no"){
+
+    let prendas = prompt("seleccione su prenda que desea cargar: ");
+    let talles = prompt("ingrese el talle: s, m, l, xl");
+    let cantidad = Number(prompt("ingrese la cantidad de stock:"));
+    let valor = Number(prompt("ingrese el precio de la prenda que desea publicar:"));
+    
+
+    carrito.push(new Compra(prendas, talles, cantidad, valor));
+
+    if(prendas!=="" && talles!=="" && cantidad!==0 && valor!==0){
+
+        alert("SUS PRODUCTOS FUERON CARGADOS CORRECTAMENTE!");
+    }
+    else{
+        alert("ERROR! CARGUE CORRECTAMENTE EL PRODUCTO");
+    }
+    
+    respuesta = prompt("desea seguir cargando productos?: si/no");
+}
+
+
+for(let miCarrito of carrito){
+    alert("Usted cargo: " + "\n" + miCarrito.prenda + "\n" + "Talle: " +miCarrito.talle + "\n" + "Cantidad: " + miCarrito.cantidad + "\n" + "Precio: $" + miCarrito.precio);
+}
+
+alert("GRACIAS POR ELEGIRNOS!");
+
+//miCarrito.algo, trabaja con las variables del objeto constructor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+ const Precio = (precio, cantidad) => {
+     let total;
+     return (total = precio * cantidad);
+   };
   
   
-  let total=0;
-  let respuesta;
-  let compra=0;
+let total=0;
+let respuesta;
+let compra=0;
+const prendas= [];
+
   
-  while(respuesta!=="no"){
-      let prenda = Number(prompt("seleccione su prenda: 1-pantalon $4500 2-remera $1800 3-buzo $3200"));
-      let cantidad = Number(prompt("seleccione la cantidad: "));
-  
-      if(prenda !== 0 && cantidad !== 0){
-          for (let i = 0; i < 1 ; i++) {
+while(respuesta!=="no"){
+    let prenda = prompt("seleccione su prenda: pantalon $4500 remera $1800 buzo $3200");
+    let cantidad = Number(prompt("seleccione la cantidad: "));
+
+    prendas.push(prenda);
+
+    if(prenda !== 0 && cantidad !== 0){
+        for (let i = 0; i < 1 ; i++) {
           
-              switch (prenda) {
-                case 1:
-                  total = Precio(4500, cantidad);
-                  alert("el total de su compra es: " + total);
-                  compra+=total;
-                  break;
-                case 2:
-                  total = Precio(1800, cantidad);
-                  alert("el total de su compra es: " + total);
-                  compra+=total;
-                  break;
-                case 3:
-                  total = Precio(3200, cantidad);
-                  alert("el total de su compra es: " + total);
-                  compra+=total;
-                  break;
-              }
-              //compra += Precio(total, prenda);
-             
-          }
-      }else{ 
-          alert("Ingrese un producto para continuar");  
-      }
+            switch (prenda) {
+                case "pantalon":
+                total = Precio(4500, cantidad);
+                alert("el total de su compra es: " + total);
+                compra+=total;
+                break;
+                case "remera":
+                total = Precio(1800, cantidad);
+                alert("el total de su compra es: " + total);
+                compra+=total;
+                break;
+                case "buzo":
+                total = Precio(3200, cantidad);
+                alert("el total de su compra es: " + total);
+                compra+=total;
+                break;
+               }
+               //compra += Precio(total, prenda);
+            
+        }
+    }else{ 
+        alert("Ingrese un producto para continuar");  
+    }
       
-      respuesta=prompt("desea seguir cargando productos?: si/no");
-  }
+       respuesta=prompt("desea seguir cargando productos?: si/no");
+}
+   
+for(const miPrenda of prendas){
+    alert("Usted selecciono: " + "\n" + miPrenda.prenda); 
+}
+
+
+alert("El total de su compra es: " + compra);
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+const arrayDeNumeros= [1, 2, 3, 4,"hola"]
   
-  alert("El total de su compra es: " + compra);
+//    porCadaUno(numeros, console.log)
 
 
 
+   const numerosDuplicados = []
 
+   const funcionAnonima = (numero) => numerosDuplicados.push(numero * 2)
+
+
+   //porCadaUno se convierte en el for que recorre numeros y hace por cada elemento el elemento * 2
+   porCadaUno(arrayDeNumeros,funcionAnonima )
+   /*
+   let porCadaUno = (numeros, funcionAnonima)=> {
+    
+    for (const elemento of arr) {
+        (elemento)=> duplicado.push(elemento * 2);
+    }
+
+  }
+   
+   
+  console.log(numerosDuplicados)
+  */
 
 
 
@@ -356,3 +536,90 @@ const descuentos = (precio, descuento) =>{
 }
 */
 
+
+// const Precio = (precio, cantidad) => {
+//     let total;
+//     return (total = precio * cantidad);
+// };
+
+
+// function sumarCarrito(valor){
+//     return (cantidad) => valor*cantidad;
+//     //calcula el precio segun la cantidad
+// }
+
+
+
+
+// class Compra{
+//     constructor(prenda, talle, cantidad, precio, total){
+//         this.prenda = prenda
+//         this.talle = talle
+//         this.cantidad = parseFloat(cantidad)
+//         this.precio = parseFloat(precio)
+//         this.total = parseFloat(total);
+//         this.disponible = true;
+//     }
+
+//     calcularCarrito(){
+//         return this.precio * this.cantidad;
+//     }
+       
+//     vendido(){
+//         this.disponible=false;
+//     }
+// }
+
+
+// let carrito=[];
+// let respuesta;
+
+// alert("Bienvenido a su tienda!");
+
+// while(respuesta !== "no"){
+
+//     let prendas = prompt("seleccione su prenda que desea cargar: pantalon $4500 remera $1800 buzo $3200");
+//     let talles = prompt("ingrese el talle: s, m, l, xl");
+//     let cantidad = Number(prompt("ingrese la cantidad:"));
+//     let valor=0;
+//     let total=0;
+
+//     carrito.push(new Compra(prendas, talles, cantidad, valor, total));
+
+//     if(prendas!=="" && talles!=="" && cantidad!==0){
+
+//         for (let producto of carrito) {
+//             switch (producto.prendas) {
+//                 case "pantalon":
+//                     producto.valor = 4500;
+//                     producto.total= producto.calcularCarrito();
+//                     producto.valor += producto.total;
+//                     break;
+//                 case "remera":
+//                     producto.valor = 1800;
+//                     producto.total=producto.calcularCarrito();
+//                     producto.valor += producto.total;
+//                     break;
+//                 case "buzo":
+//                     producto.valor = 3200;
+//                     producto.total=producto.calcularCarrito();
+//                     producto.valor += producto.total;
+//                     break;
+//             }
+//             alert("El total cargado es: " + producto.total);
+//         }
+//     }
+//     else{
+//         alert("ERROR! CARGUE CORRECTAMENTE EL PRODUCTO");
+//     }
+    
+   
+
+//     respuesta = prompt("desea seguir cargando productos?: si/no");
+// }
+
+
+
+// for(let miCarrito of carrito){
+//     alert("Usted cargo: " + "\n" + miCarrito.prendas + "\n" + "Talle: " +miCarrito.talle + "\n" + " Cantidad: " + miCarrito.cantidad);
+// }
