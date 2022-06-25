@@ -16,23 +16,30 @@ main{
         background-color: $principal;
         opacity: 80%;
         border-radius: 1rem;
+        width: 18rem;
+        
     }
 
     .card-img, .card-img-top {
         border-radius: 5px;
         margin-top: 0.5rem;
+        height: 280px;
     }
 
     .row{
         justify-content: center;
     }
 
-    .btn-primary {
+    
+    a .btn .btn-primary {
         color: #fff;
         background-color: #0b1d24;
         border-color: #051820;
         font-family: $font-three;
     }
+    
+
+    
 
     h5{
         color: #fff;
@@ -43,4 +50,40 @@ main{
         color: #fff;
         font-family: $font-two;
     }
+
+    .modal-contenedor {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, .3);
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+  
+        transition: .3s all ease-in-out;
+        
+      }
+      .modal-carrito {
+        background-color: white;
+        width: 460px;
+        height: 500px;
+        border-radius: 20px; 
+      }
+      
+      .modal-container--visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      
+
 }
+
+
+
+
+

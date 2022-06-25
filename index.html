@@ -8,7 +8,9 @@
      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilo.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="js/main.js"></script>
+    <script src="js/data.js" async></script>
+    <script src="js/modal.js" async></script>
+    <script src="js/main.js" async></script>
     <title>Eyestronomy | Tienda</title>
 </head>
 <body>
@@ -23,142 +25,54 @@
                 <p>TIENDA DEL MULTIVERSO</p>
             </div>
         </div>
+
+        <button id="carritoAbrir" class="boton">MOSTRAR CARRITO: <span id="contadorCarrito">0</span></button>
     </header>
 
     <main>
-
+      <!--
+        <div class="seleccion">
+        <select id="selectTalles">
+          <option value="all">Todos</option>
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
+        </select>
+      </div>
+      -->
+  
         <h2 class="productos" data-aos="fade-down-left">Todos los productos del Multiverso!</h2>
-        <section class="cards row row-cols-3 row-cols-md-4">
+        <section id="miCard" class="cards row row-cols-3 row-cols-md-4">
           
-           
-          <div class="card" style="width: 18rem;">
-            <img src="./assets/multimedia/buzo 1.jpeg" class="centrar card-img-top" height="270px" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Comprar</a>
-              </div>
+      </section>
+        
+      
+        <div id="modal-container" class="modal-contenedor">
+          <div class="modal-carrito">
+            <h3>Mi Carrito</h3>
+            <button id="carritoCerrar">X</i></button>
+            <div id="carrito-contenedor">
+
             </div>
-                
-            <div class="card" style="width: 18rem;">
-              <img src="./assets/multimedia/buzo2.jpg" class="card-img-top" height="300px" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div> 
-
-            <div class="card" style="width: 18rem;">
-              <img src="./assets/multimedia/buzo3.webp" class="card-img-top" height="300px" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-              </div>
-
-              <div class="card" style="width: 18rem;">
-                <img src="./assets/multimedia/buzo4.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Comprar</a>
-                  </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img src="./assets/multimedia/reme1.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                  </div>
-
-                  <div class="card" style="width: 18rem;">
-                    <img src="./assets/multimedia/reme2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                      </p>
-                      <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                  </div>
-                  
-                  <div class="card" style="width: 18rem;">
-                    <img src="./assets/multimedia/reme3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                      </p>
-                      <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                  </div>
-                  
-                  <div class="card" style="width: 18rem;">
-                    <img src="./assets/multimedia/reme4.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                      </p>
-                      <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                  </div>
-                  
-                  <div class="card" style="width: 18rem;">
-                    <img src="./assets/multimedia/reme.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                      </p>
-                      <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                  </div>
-                  
-              
-
-                    <div class="card" style="width: 18rem;">
-                      <img src="./assets/multimedia/nasa-denim-jacket-for-boys.jpg" class="card-img-top" height="270px" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                      </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                      <img src="./assets/multimedia/vaqueros-bordado-print-zodiaco-bershka-650x800.jpg" class="card-img-top" height="290px" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                      </div>
-                    
-                  </div>
-                  
-
-              
-
-            
-        </section>
+            <p class="precioProducto">Total de la compra: $<span id="precioTotal">0</span></p>
+            <div id="terminar">Terminar Compra</div>
+          </div>
+        </div>
 
         <section>
             <div class="contacto">
-                <form class="form" method="POST" enctype="multipart/form-data">
-                    <label class="form__label" for="username">Nombre</label>
+                <form id="form" class="form" method="POST" enctype="multipart/form-data">
+                    <label id="name" class="form__label" for="username">Nombre</label>
                     <input class="form__input" id="username" type="text" placeholder="Ingrese su nombre">
                     <br>
-                    <label class="form__label" for="email">Email</label>
+                    <label id="mail" class="form__label" for="email">Email</label>
                     <input class="form__input" id="email" type="email" placeholder="Ingrese su direccion de email">
                     <br>
-                    <label class="form__label" for="phone">Telefono de contacto</label>
+                    <label id="tel" class="form__label" for="phone">Telefono de contacto</label>
                     <input class="form__input" type="tel" name="phone" id="phone" placeholder="Ingrese su telefono">
                     <br>
-                    <button class="form__button" type="submit">Enviar</button>
-                    <button class="form__button" type="reset">Reset</button>
+                    <button id="send" class="form__button" type="submit">Enviar</button>
+                    <button id="reset" class="form__button" type="reset">Reset</button>
                 </form>
             </div>
 
@@ -195,3 +109,42 @@
     </script>
 </body>
 </html>
+
+
+
+
+<!--
+   <button id="open-modal" class="openmodal"> ABRIR PEDIDO</button>
+
+   <div id="modal-container" class="modal-container">
+          <div id="contador">
+
+            <button id="btn-carrito">
+              <span id="contador-pedido">0</span>
+            </button>
+
+          </div>
+
+          <div id="modal" class="modal">
+            <button id="close-modal">X</button> 
+
+             <hr>
+
+            <h2>MI PEDIDO</h2> 
+              <div id="pedido-contenedor">
+                <div class="productoPedido">
+                  <p></p>
+                  <p></p>
+
+                  <button class="btn-eliminar"> X Sustraer </button>
+                </div>
+
+                <hr>
+
+                <p class="precio-producto">Precio Total <br>
+                  <span id="precio-total">0</span></p>
+
+                  <hr>
+
+            </div>
+-->
