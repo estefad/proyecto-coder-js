@@ -1,6 +1,4 @@
-
-
-//const modalContainer= document.getElementById('modalContenedor')
+//MODAL 
 
 const modalContenedor= document.getElementById("modal-container");
 const carritoAbrir= document.getElementById("carritoAbrir");

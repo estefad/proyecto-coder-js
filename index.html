@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <button id="carritoAbrir" class="boton">MOSTRAR CARRITO: <span id="contadorCarrito">0</span></button>
+        <button id="carritoAbrir" class="botonCarrito">MI CARRITO: <span id="contadorCarrito">0</span></button>
     </header>
 
     <main>
@@ -44,23 +44,23 @@
         <h2 class="productos" data-aos="fade-down-left">Todos los productos del Multiverso!</h2>
         <section id="miCard" class="cards row row-cols-3 row-cols-md-4">
           
-      </section>
+        </section>
         
       
         <div id="modal-container" class="modal-contenedor">
           <div class="modal-carrito">
-            <h3>Mi Carrito</h3>
-            <button id="carritoCerrar">X</i></button>
+            <h3 class="modal-titulo">Mi Carrito</h3>
+            <button id="carritoCerrar" class="cerrar-carrito">X</button>
             <div id="carrito-contenedor">
 
             </div>
             <p class="precioProducto">Total de la compra: $<span id="precioTotal">0</span></p>
-            <div id="terminar">Terminar Compra</div>
+            <div id="terminar" class="precioProducto">Terminar Compra</div>
           </div>
         </div>
 
         <section>
-            <div class="contacto">
+            <div id="contact" class="contacto">
                 <form id="form" class="form" method="POST" enctype="multipart/form-data">
                     <label id="name" class="form__label" for="username">Nombre</label>
                     <input class="form__input" id="username" type="text" placeholder="Ingrese su nombre">

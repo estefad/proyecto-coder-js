@@ -45,5 +45,16 @@ header{
       height: 15px;
     }
 
+   .botonCarrito{
+    @include flex(flex, center, nowrap, center);
+    margin: 1rem;
+    margin-left: 13rem;
+    width: 10%;
+    background-color: $principal;
+    border-radius: 5px;
+    border-bottom: $secondary;
+    font-family: $font-three;
+    color: white;
+  }
    
 }
