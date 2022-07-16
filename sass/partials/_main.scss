@@ -118,6 +118,18 @@ main{
         }
       }
 
+      .vaciar{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        font-family: $font-three;
+        background-color: $principal;
+        width: 30%;
+
+      }
+
       .boton-eliminar{
         width: 15%;
         color: $principal;
@@ -126,6 +138,42 @@ main{
         font-family: $font-three;
         margin-left: auto;
         margin-right: .2rem;
+      }
+
+      .datos{
+        text-align: center;
+        margin-top: 9rem;
+        padding: 0.5rem;
+        font-family: $font-two
+      }
+
+      .contacto{
+        @include flex(flex, center, nowrap, center);
+        margin-top: 7rem;
+        padding: 0.5rem;
+        background-color: $principal;
+        border-radius: 10px;
+        width: 50%;
+        height: 250px;
+        margin: 0 auto;
+        opacity: 80%;
+
+        .form__label{
+          font-family: $font-three;
+          color: white;
+          margin: .5rem;
+        }
+
+        .form__input{
+          border-radius: 5px;
+        }
+
+        .form__button{
+          width: 30%;
+          border-bottom: $principal;
+          border-radius: 5px;
+        }
+
       }
 }
 

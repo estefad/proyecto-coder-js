@@ -1,5 +1,3 @@
-//DESAFIO
-
 let carritoCompra;//que inicie como var
 const carritoEnStorage = JSON.parse(localStorage.getItem('carritoCompra'));
 
@@ -40,6 +38,13 @@ function mostrarProductos(){
         btnAgregar.addEventListener(`click`, ()=>{
 
            agregarAlCarrito(el.id)//puedo saber quien hizo click para agregar al carrito
+           Toastify({
+                text: "Producto en carrito!!",
+                duration: 3000,
+                style: {
+                    background: "rgb(36, 46, 48)",
+                  }
+            }).showToast();
            
         })
     })
@@ -51,19 +56,15 @@ function mostrarProductos(){
 function agregarAlCarrito(id){
     const productoAgregar= productos.find(item=> item.id === id)//que item se fije si lo que recibe es el id por parametro
     carritoCompra.push(productoAgregar); 
-
+    
     localStorage.setItem('carritoCompra', JSON.stringify(carritoCompra));//cada vez que agrego un item, lo guarde en LS
 
-     if(productoAgregar.stock >0){
-        productoAgregar.stock--;
-            
-    }else{
-        alert("Usted alcanzo el maximo de stock de este producto");        
-    }
+    productoAgregar.stock>0 ? productoAgregar.stock-- : alert("Usted alcanzo el maximo de stock de este producto");  
+   
+    carritoCantidad();        
     
+    totalCarrito();
     mostrarCarrito();
-    carritoCantidad();
-    totalCarrito(); 
 }
 
 //FUNCION MODAL Y MOSTRAR
@@ -84,6 +85,20 @@ function mostrarCarrito(){
     
     carritoCantidad();
     totalCarrito();
+    vaciarCarrito();
+}
+
+//VACIAR CARRITO
+const vaciarCarrito= () => {
+    const btnVaciar= document.getElementById('vaciarCarrito')
+    btnVaciar.addEventListener('click', () =>{
+        carritoCompra.length= [];
+
+        carritoCantidad();
+        mostrarCarrito();  
+        totalCarrito();
+    })
+    
 }
 
 
@@ -108,6 +123,7 @@ const eliminar=(id)=>{
     const indice = carritoCompra.indexOf(item);
     carritoCompra.splice(indice, 1);
 
+
     localStorage.setItem('carritoCompra', JSON.stringify(carritoCompra));//si vacio mi carrito, actualizo mi local storage
     
     carritoCantidad();
@@ -115,19 +131,37 @@ const eliminar=(id)=>{
     mostrarCarrito();    
 }
 
-if(carritoEnStorage){
-    carritoCompra = carritoEnStorage; //si encuentro info en el local storage
+carritoEnStorage ? carritoCompra = carritoEnStorage : carritoCompra = [];
 
-    mostrarCarrito();
-    carritoCantidad();
-    totalCarrito(); 
-    //las funciones van leyendo lo que pasa en mi programa y van actualizando el dom con esa info 
-}
-else{
-    carritoCompra = [];
-}
+mostrarCarrito();
+carritoCantidad();
+totalCarrito(); 
+
+
+ //las funciones van leyendo lo que pasa en mi programa y van actualizando el dom con esa info 
+
 //si el storage tiene un valor valido, el carrito va a ser igual al storage, sino
 //recien ahi, mi carritoCompra inicia como array vacio
+
+//VALIDAR FORMULARIO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

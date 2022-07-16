@@ -167,6 +167,15 @@ main {
     margin-bottom: 0.8rem; }
     main .productoCarrito p {
       margin-left: .19rem; }
+  main .vaciar {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    font-family: "Staatliches", cursive;
+    background-color: #242e30;
+    width: 30%; }
   main .boton-eliminar {
     width: 15%;
     color: #242e30;
@@ -175,3 +184,31 @@ main {
     font-family: "Staatliches", cursive;
     margin-left: auto;
     margin-right: .2rem; }
+  main .datos {
+    text-align: center;
+    margin-top: 9rem;
+    padding: 0.5rem;
+    font-family: "Fira Sans Extra Condensed", sans-serif; }
+  main .contacto {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 7rem;
+    padding: 0.5rem;
+    background-color: #242e30;
+    border-radius: 10px;
+    width: 50%;
+    height: 250px;
+    margin: 0 auto;
+    opacity: 80%; }
+    main .contacto .form__label {
+      font-family: "Staatliches", cursive;
+      color: white;
+      margin: .5rem; }
+    main .contacto .form__input {
+      border-radius: 5px; }
+    main .contacto .form__button {
+      width: 30%;
+      border-bottom: #242e30;
+      border-radius: 5px; }
