@@ -1,3 +1,26 @@
+
+setTimeout(()=> {
+    const { value: email } = Swal.fire({
+        title: 'Enterate de nuestras ofertas!',
+        input: 'email',
+        inputLabel: 'direccion de email',
+        inputPlaceholder: 'Ingrese su email'
+      })
+      
+      if (email) {
+       
+        Swal.fire(`Entered email: ${email}`);
+        let email;
+        const mailEnStorage = JSON.parse(localStorage.getItem('email'));
+        localStorage.setItem('email', JSON.stringify(email));
+        mailEnStorage ? email.value = mailEnStorage : email.value = [];
+      }
+
+}, 3000);
+
+
+
+
 let carritoCompra;//que inicie como var
 const carritoEnStorage = JSON.parse(localStorage.getItem('carritoCompra'));
 
