@@ -1,14 +1,8 @@
 //fetch con archivo local
-// http://127.0.0.1:5500/json/data.json
-const URL= 'json/data.json';
+const url= 'json/data.json';
 
-// function render(lista){
-//     lista.forEach(e => {
-//         document.write(`<li>${e.modelo} - precio ${e.precio}</li>`)
-//     });
-// }
 
-fetch(URL)
+fetch(url)
     .then(resp => resp.json())
     .then(data => { console.log(data) })
     // .then(data => { render(data) })

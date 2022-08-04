@@ -10,10 +10,8 @@ setTimeout(()=> {
       if (email) {
        
         Swal.fire(`Entered email: ${email}`);
-        let email;
-        const mailEnStorage = JSON.parse(localStorage.getItem('email'));
-        localStorage.setItem('email', JSON.stringify(email));
-        mailEnStorage ? email.value = mailEnStorage : email.value = [];
+        localStorage.setItem('email', `${email}`.value);
+        //localStorage.getItem(`${email}`.value);
       }
 
 }, 3000);
@@ -21,7 +19,7 @@ setTimeout(()=> {
 
 
 
-let carritoCompra;//que inicie como var
+let carritoCompra;
 const carritoEnStorage = JSON.parse(localStorage.getItem('carritoCompra'));
 
 const miCard= document.getElementById("miCard");
@@ -37,11 +35,10 @@ const precioTotal= document.getElementById("precioTotal");
 
 
 
+
 //FUNCIONES
 mostrarProductos();
 
-
-//FUNCION GENERICA PARA GENERAR HTML(carrito, turnos, etc)
 function mostrarProductos(){
     productos.forEach(el =>{
         const divContenedor = document.createElement("div");
@@ -54,13 +51,12 @@ function mostrarProductos(){
                                     <p id="cantidad" class="card-text">Stock: disponible</p>
                                     <a id="boton${el.id}" class="btn btn-primary">Comprar</a>
                                     </div>`;
-        miCard.appendChild(divContenedor);//hace padre a mi contenedor section y me genera todas las card de productos
+        miCard.appendChild(divContenedor);
 
-        let btnAgregar= document.getElementById(`boton${el.id}`);//almacena cada boton con su id
-        //evento que se aplica a cada boton, uno por uno
+        let btnAgregar= document.getElementById(`boton${el.id}`);
         btnAgregar.addEventListener(`click`, ()=>{
 
-           agregarAlCarrito(el.id)//puedo saber quien hizo click para agregar al carrito
+           agregarAlCarrito(el.id)
            Toastify({
                 text: "Producto en carrito!!",
                 duration: 3000,
@@ -79,13 +75,11 @@ function mostrarProductos(){
 function agregarAlCarrito(id){
     const productoAgregar= productos.find(item=> item.id === id)//que item se fije si lo que recibe es el id por parametro
     carritoCompra.push(productoAgregar); 
-    
-    localStorage.setItem('carritoCompra', JSON.stringify(carritoCompra));//cada vez que agrego un item, lo guarde en LS
 
-    productoAgregar.stock>0 ? productoAgregar.stock-- : alert("Usted alcanzo el maximo de stock de este producto");  
+    productoAgregar.stock>0 ? productoAgregar.stock-- : Swal.fire('Supero el maximo de este producto!'); 
+    localStorage.setItem('carritoCompra', JSON.stringify(carritoCompra)); 
    
     carritoCantidad();        
-    
     totalCarrito();
     mostrarCarrito();
 }
@@ -124,22 +118,16 @@ const vaciarCarrito= () => {
     
 }
 
-
 //FUNCION TOTAL DE COMPRA Y CUANTOS PRODUCTOS SE CARGARON EN EL ARRAY
 
 const carritoCantidad=()=>{
-    //uso el innerText porque lo quiero es moidificar el valor, y no generar etiquetas
-    contadorCarrito.innerText = carritoCompra.length; //que interprete en texto el largo del carrito, actializando el numero de los productos agregados
+    contadorCarrito.innerText = carritoCompra.length; 
 }
 
-function totalCarrito(){
-    
+function totalCarrito(){  
     precioTotal.innerText = carritoCompra.reduce((acc, el)=> acc + el.precio , 0);
 }
 
-/* reduce recibe dos param: una funcion y luego un numero x,
-la funcion recibe el acumulador (acc) y un elem (el.precio) el acumulador se suma por cada elemento con propiedad precio
-el 0 es el valor inicial del acumulador, sino cargo nada, no se acumula nada*/
 
 const eliminar=(id)=>{
     const item= carritoCompra.find((el) => el.id === id);
@@ -147,7 +135,7 @@ const eliminar=(id)=>{
     carritoCompra.splice(indice, 1);
 
 
-    localStorage.setItem('carritoCompra', JSON.stringify(carritoCompra));//si vacio mi carrito, actualizo mi local storage
+    localStorage.setItem('carritoCompra', JSON.stringify(carritoCompra));
     
     carritoCantidad();
     totalCarrito();
@@ -160,114 +148,67 @@ mostrarCarrito();
 carritoCantidad();
 totalCarrito(); 
 
+//VALIDAR FORMULARIO EN STORAGE
 
- //las funciones van leyendo lo que pasa en mi programa y van actualizando el dom con esa info 
+const misDatos= [];
 
-//si el storage tiene un valor valido, el carrito va a ser igual al storage, sino
-//recien ahi, mi carritoCompra inicia como array vacio
-
-//VALIDAR FORMULARIO
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- function eliminarDelCarrito(productoAgregar){
-     let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`);
+const datostEnStorage = () =>{
     
-     btnEliminar.addEventListener('click', ()=> {
-         btnEliminar.parentElement.remove();
-         carritoCompra= carritoCompra.filter(elemento=> elemento.id !== productoAgregar.id);
-         actualizarCarrito();
-         //parent element me muestra al padre del elemento que tomo con id, y al hacer el remove, logro sacar al padre
-         //del contenedor de ese producto, en este caso, quien contiene mi producto es productoCarrito
-    })
-    
-}*/
+        const data= [];
+        data.push(document.querySelector('#nombre').value);
+        data.push(document.querySelector('#mail').value);
+        data.push(document.querySelector('#tel').value);
 
-//INPUTS
+        misDatos.push(data);
+        const dataJson= JSON.stringify(misDatos);
+        localStorage.setItem("data", dataJson);
+}
 
-// const contacto= document.getElementById("contact");
-
-
-//CARGAR FORMULARIO
-// formulario();
-
-// function formulario(){
-//     let formContenedor = document.createElement("form");
-//     formContenedor.className = "form";
-
-//     //innerHTML=insertar html
-//      formContenedor.innerHTML= ``;
-//     miCard.appendChild(formContenedor);//hace padre a mi contenedor section y me genera todas las card de producto
-
-  
-// }
+const send= document.querySelector('#send');
+send.addEventListener('click', (event) =>{
+    event.preventDefault()
+    datostEnStorage();
+    Swal.fire({
+        title: 'Por favor revise su email, alli enviamos su factura',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
+})
 
 
 
-/*En resumen, quedaría así?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*En resumen, quedaría así
 array de objetos-->se transforma en Json-->se envía el json al storage-->se recupera el storage-->
 se convierte el Json-->obtenemos los objetos nuevamente.
 
 
-console.log('Local Storage con JSON');
 
-let items = [
-    {id: 1, name: 'iPhone', price: 1200},
-    {id: 2, name: 'Samsung', price: 1000},
-    {id: 3, name: 'Xiaomi', price: 400}
-]
-
-console.log(items);
-
-let itemsJSON = JSON.stringify(items)
-
-localStorage.setItem('items', itemsJSON)
-
-let itemsFromStorage = localStorage.getItem('items')
-console.log(typeof itemsFromStorage);
-console.log(itemsFromStorage);
-
-let itemsBack = JSON.parse( itemsFromStorage )
-console.log(itemsBack);
-
-
-
- */
-
-
-
-
-
-
-
-
-/*
 function botonVolverAtras(){
     const volver= document.createElement(`button`);
     volver.classList.add("boton-volver");

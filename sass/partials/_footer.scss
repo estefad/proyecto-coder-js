@@ -1,0 +1,22 @@
+.footer{
+    @include flex (flex, center, nowrap, center);
+    margin-top: 10rem;
+
+    .foot{
+        margin-right: 8rem;
+
+        &__img{
+            border-radius: 100%;
+        }
+    }
+
+    .derechos__p{
+        margin-left: -4rem;
+    }
+
+    .redes img{
+        background-color: white;
+        border-radius: 50%;
+    }
+    
+}

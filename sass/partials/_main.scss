@@ -147,6 +147,11 @@ main{
         font-family: $font-two
       }
 
+      .form{
+        margin-right: -11rem;
+        margin-top: 8rem;
+      }
+
       .contacto{
         @include flex(flex, center, nowrap, center);
         margin-top: 7rem;
@@ -173,6 +178,9 @@ main{
           border-bottom: $principal;
           border-radius: 5px;
         }
+
+      }
+      .request{
 
       }
 }

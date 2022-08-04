@@ -66,18 +66,20 @@
         <section>
           <h3 class="datos">Deje sus datos para recibir la factura de su compra</h3>
             <div id="contact" class="contacto"> 
-                <form id="form" class="form" method="POST" enctype="multipart/form-data">
+                <form id="form" class="form" method="POST" target="request" enctype="multipart/form-data">
                     <label id="label" class="form__label" for="username">Nombre
-                    <input class="form__input" id="input" type="text" placeholder="Ingrese su nombre"></label>
+                    <input id="nombre" class="form__input" id="input" type="text" placeholder="Ingrese su nombre"></label>
                     <br>
                     <label id="label" class="form__label" for="email">Email
-                    <input class="form__input" id="input" type="email" placeholder="Ingrese su direccion de email"></label>
+                    <input id="mail" class="form__input" id="input" type="email" placeholder="Ingrese su direccion de email"></label>
                     <br>
                     <label id="label" class="form__label" for="phone">Telefono
-                    <input class="form__input" type="tel" name="phone" id="input" placeholder="Ingrese su telefono"></label>
+                    <input id="tel" class="form__input" type="tel" name="phone" id="input" placeholder="Ingrese su telefono"></label>
                     <br>
                     <button id="send" class="form__button" type="submit">Enviar</button>
                     <button id="reset" class="form__button" type="reset">Reset</button>
+                    <iframe id="request" class="request"></iframe>
+                    <div id="response"></div>
                 </form>
             </div>
 
@@ -87,17 +89,17 @@
 
 
     <footer class="footer">
-        <div>
-            <picture class="foot">
+        <div class="foot">
+            <picture>
                 <img class="foot__img" src="assets/multimedia/logo.png" alt="Logo Eyestronomy" width="80px" height="80px">
             </picture>
             
-            <p class="foot derechos__p">Todos los Derechos Rreservados
+            <p class="derechos__p">Todos los Derechos Rreservados
              <br>
             Info a eyestronomy@correo.com</p> 
         </div>
         <div class="redes">
-            <h5 class="redes redes__titulo">SEGUINOS</h5>
+            <h5 class="redes__titulo">SEGUINOS</h5>
             <ul class="redes">
                 <li class="redes redes__li"><a class="redes" href="http://www.facebook.com" target="blank"><img class="redes__li redes__li--img1" src="assets/multimedia/facebook logo png sin fondo (1).png" width="30px" height="30px" alt="facebook"></a></li>
                 <li class="redes redes__li"><a class="redes" href="http://www.instagram.com" target="blank"><img class="redes__li redes__li--img2" src="assets/multimedia/ig.png" width="30px" height="30px" alt="instagram"></a></li>
@@ -119,42 +121,3 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>
-
-
-
-
-<!--
-   <button id="open-modal" class="openmodal"> ABRIR PEDIDO</button>
-
-   <div id="modal-container" class="modal-container">
-          <div id="contador">
-
-            <button id="btn-carrito">
-              <span id="contador-pedido">0</span>
-            </button>
-
-          </div>
-
-          <div id="modal" class="modal">
-            <button id="close-modal">X</button> 
-
-             <hr>
-
-            <h2>MI PEDIDO</h2> 
-              <div id="pedido-contenedor">
-                <div class="productoPedido">
-                  <p></p>
-                  <p></p>
-
-                  <button class="btn-eliminar"> X Sustraer </button>
-                </div>
-
-                <hr>
-
-                <p class="precio-producto">Precio Total <br>
-                  <span id="precio-total">0</span></p>
-
-                  <hr>
-
-            </div>
--->
